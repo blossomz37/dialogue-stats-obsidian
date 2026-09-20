@@ -2,6 +2,9 @@
 .dialogue-stats {
   font-variant-numeric: tabular-nums;
 }
+.dialogue-stats__dialogue {
+  color: var(--dialogue-stats-color, inherit);
+}
 .dialogue-stats__sep {
   opacity: 0.5;
   margin: 0 6px;

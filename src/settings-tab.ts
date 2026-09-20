@@ -14,6 +14,8 @@ export class DialogueStatsSettingTab extends PluginSettingTab {
     super(app, plugin);
   }
 
+  // The declarative settings API (1.13+) cannot host the live preview block.
+  // eslint-disable-next-line @typescript-eslint/no-deprecated
   display(): void {
     const { containerEl } = this;
     containerEl.empty();
@@ -24,7 +26,7 @@ export class DialogueStatsSettingTab extends PluginSettingTab {
     const preview = previewWrap.createDiv({ cls: "dialogue-stats-preview" });
     this.previewWords = preview.createSpan();
     preview.createSpan({ cls: "dialogue-stats__sep", text: "|" });
-    this.previewDialogue = preview.createSpan();
+    this.previewDialogue = preview.createSpan({ cls: "dialogue-stats__dialogue" });
     this.updatePreview();
 
     // --- Thresholds
@@ -37,7 +39,6 @@ export class DialogueStatsSettingTab extends PluginSettingTab {
         slider
           .setLimits(0, 100, 1)
           .setValue(this.plugin.settings.lowThreshold)
-          .setDynamicTooltip()
           .onChange(async (value) => {
             const high = this.plugin.settings.highThreshold;
             this.plugin.settings.lowThreshold = Math.min(value, high);
@@ -56,7 +57,6 @@ export class DialogueStatsSettingTab extends PluginSettingTab {
         slider
           .setLimits(0, 100, 1)
           .setValue(this.plugin.settings.highThreshold)
-          .setDynamicTooltip()
           .onChange(async (value) => {
             const low = this.plugin.settings.lowThreshold;
             this.plugin.settings.highThreshold = Math.max(value, low);
@@ -78,11 +78,11 @@ export class DialogueStatsSettingTab extends PluginSettingTab {
     this.addColor(containerEl, "High", "Used above the high threshold.", "highColor");
 
     // --- General
-    new Setting(containerEl).setName("General").setHeading();
+    new Setting(containerEl).setName("Display").setHeading();
 
     new Setting(containerEl)
       .setName("Show in status bar")
-      .setDesc("Desktop only. On mobile, use the command “Dialogue Stats: Show stats for current note”.")
+      .setDesc("Desktop only. On mobile, use the show stats command instead.")
       .addToggle((toggle) =>
         toggle.setValue(this.plugin.settings.enabled).onChange(async (value) => {
           this.plugin.settings.enabled = value;
@@ -97,7 +97,6 @@ export class DialogueStatsSettingTab extends PluginSettingTab {
         slider
           .setLimits(0, 2000, 50)
           .setValue(this.plugin.settings.updateDebounceMs)
-          .setDynamicTooltip()
           .onChange(async (value) => {
             this.plugin.settings.updateDebounceMs = value;
             await this.plugin.saveSettings();
@@ -144,12 +143,12 @@ export class DialogueStatsSettingTab extends PluginSettingTab {
     if (!stats) {
       this.previewWords.setText("Words: —");
       this.previewDialogue.setText("Dialogue: —");
-      this.previewDialogue.style.color = "";
+      this.previewDialogue.setCssProps({ "--dialogue-stats-color": "inherit" });
       return;
     }
     const band = pickBand(stats.dialoguePercent, this.plugin.settings);
     this.previewWords.setText(`Words: ${stats.totalWords.toLocaleString()}`);
     this.previewDialogue.setText(`Dialogue: ${stats.dialoguePercent}%  (${band})`);
-    this.previewDialogue.style.color = pickColor(band, this.plugin.settings);
+    this.previewDialogue.setCssProps({ "--dialogue-stats-color": pickColor(band, this.plugin.settings) });
   }
 }

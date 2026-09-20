@@ -27,7 +27,7 @@ export class StatusBar {
 
     this.wordsEl.setText(`Words: ${stats.totalWords.toLocaleString()}`);
     this.dialogueEl.setText(`Dialogue: ${stats.dialoguePercent}%`);
-    this.dialogueEl.style.color = color;
+    this.dialogueEl.setCssProps({ "--dialogue-stats-color": color });
     this.root.setAttr(
       "aria-label",
       `${stats.totalWords} words. ${stats.dialogueWords} dialogue words. ` +
