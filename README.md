@@ -50,3 +50,13 @@ npm run dev     # watch build
 npm test        # unit tests for the counting core
 npm run build   # production build
 ```
+
+## Starter vault
+
+`/Users/carlo/Github/basic-obsidian-vault` ships with this plugin installed as real files (not a symlink). After any change, run:
+
+```
+npm run install:vault
+```
+
+That rebuilds and copies `main.js`, `manifest.json`, and `styles.css` into the vault.
