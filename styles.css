@@ -11,9 +11,6 @@
 }
 
 /* Settings tab preview */
-.dialogue-stats-preview-wrap {
-  padding: 0 0 12px;
-}
 .dialogue-stats-preview {
   display: inline-block;
   padding: 4px 10px;
@@ -22,7 +19,4 @@
   color: var(--text-muted);
   font-size: var(--font-ui-small);
   font-variant-numeric: tabular-nums;
-}
-.dialogue-stats-hint {
-  padding: 0 0 8px;
 }
