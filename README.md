@@ -6,6 +6,8 @@ Word count and dialogue percentage for the note you are writing, in the status b
 Words: 1,694  |  Dialogue: 34%
 ```
 
+![Status bar showing Words and Dialogue percent](media/status-bar-preview.png)
+
 The dialogue number changes color. Low, target, and high each get a color you choose.
 
 ## Settings
@@ -19,6 +21,8 @@ Settings → Community plugins → Dialogue Stats. You get:
 - A reset button
 
 Every change saves at once.
+
+![Settings tab with sliders and color pickers](media/settings-preview.png)
 
 ## Mobile
 
