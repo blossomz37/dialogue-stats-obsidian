@@ -34,7 +34,7 @@ Obsidian mobile has no status bar. Use the command **Dialogue Stats: Show stats 
 
 Em-dash dialogue with no quotation marks is not counted. Quoted signs, letters, and thoughts are counted.
 
-The counting core is shared with the [Dialogue Stats VS Code extension](https://github.com/blossomz37/dialogue-stats-vsix). Same file, same numbers, in both apps.
+The counting core is shared with the Dialogue Stats VS Code extension. Same file, same numbers, in both apps.
 
 ## Install by hand
 
@@ -53,10 +53,8 @@ npm run build   # production build
 
 ## Starter vault
 
-`/Users/carlo/Github/basic-obsidian-vault` ships with this plugin installed as real files (not a symlink). After any change, run:
+A ready-made vault with the plugin installed, sample chapters, and a walkthrough is kept alongside this repo during development. After any change, `npm run install:vault` rebuilds and copies `main.js`, `manifest.json`, and `styles.css` into it. The script expects the vault at `../basic-obsidian-vault`.
 
-```
-npm run install:vault
-```
+## License
 
-That rebuilds and copies `main.js`, `manifest.json`, and `styles.css` into the vault.
+MIT. See `LICENSE`.
