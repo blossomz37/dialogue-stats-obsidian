@@ -101,7 +101,7 @@ export default class DialogueStatsPlugin extends Plugin {
     await this.refresh();
     const s = this.lastStats;
     if (!s) {
-      new Notice("Open a markdown note first.");
+      new Notice("Open a Markdown note first.");
       return;
     }
     const band = pickBand(s.dialoguePercent, this.settings);

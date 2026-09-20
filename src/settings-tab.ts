@@ -14,8 +14,7 @@ export class DialogueStatsSettingTab extends PluginSettingTab {
     super(app, plugin);
   }
 
-  // The declarative settings API (1.13+) cannot host the live preview block.
-  // eslint-disable-next-line @typescript-eslint/no-deprecated
+  // The declarative settings API (1.13+) cannot host the live preview block, so display() stays.
   display(): void {
     const { containerEl } = this;
     containerEl.empty();
@@ -110,6 +109,7 @@ export class DialogueStatsSettingTab extends PluginSettingTab {
         button.setButtonText("Reset").onClick(async () => {
           this.plugin.settings = { ...DEFAULT_SETTINGS };
           await this.plugin.saveSettings();
+          // eslint-disable-next-line @typescript-eslint/no-deprecated
           this.display();
         })
       );
