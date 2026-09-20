@@ -1,0 +1,10 @@
+{
+	"id": "dialogue-stats",
+	"name": "Dialogue Stats",
+	"version": "0.1.0",
+	"minAppVersion": "1.1.0",
+	"description": "Word count and dialogue percentage for the active note in the status bar. Thresholds and colors are yours to set.",
+	"author": "Carlo Santiago",
+	"authorUrl": "https://github.com/blossomz37",
+	"isDesktopOnly": false
+}

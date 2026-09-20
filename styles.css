@@ -1,0 +1,25 @@
+/* Dialogue Stats — status bar */
+.dialogue-stats {
+  font-variant-numeric: tabular-nums;
+}
+.dialogue-stats__sep {
+  opacity: 0.5;
+  margin: 0 6px;
+}
+
+/* Settings tab preview */
+.dialogue-stats-preview-wrap {
+  padding: 0 0 12px;
+}
+.dialogue-stats-preview {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: var(--background-secondary);
+  color: var(--text-muted);
+  font-size: var(--font-ui-small);
+  font-variant-numeric: tabular-nums;
+}
+.dialogue-stats-hint {
+  padding: 0 0 8px;
+}
